@@ -7,13 +7,17 @@ $post_date = $data["post_date"];
 $post_time = $data["post_time"];
 
 $id = $_GET["post_id"];
-$query = "UPDATE posts SET title='$title', content='$content', post_date='$post_date', post_time='$post_time' WHERE post_id=$id";
+$query = $connection->prepare("UPDATE posts 
+SET title=?, content=?, post_date=?, post_time=? WHERE post_id=?");
 
-if (mysqli_query($connection, $query)) {
+$query->bind_param("ssssi", $title, $content, $post_date, $post_time, $id);
+
+if ($query->execute()) {
     $response = array("message" => "Record updated successfully");
 } else {
-    $response = array("message" => "Error updating record: " . mysqli_error($connection));
+    $response = array("message" => "Error updating record: " . $query->error);
 }
 
+$query->close();
 echo json_encode($response);
 ?>
