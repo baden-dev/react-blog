@@ -12,7 +12,7 @@ VALUES ('$title', '$content', '$date', '$time')";
 if (mysqli_query($connection, $query)) {
     $response = array("message" => "Record created successfully");
 } else {
-    $response = array("message" => "Error creating record: " . mysqli_error($conn));
+    $response = array("message" => "Error creating record: " . mysqli_error($connection));
 }
 
 echo json_encode($response);

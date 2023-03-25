@@ -12,7 +12,7 @@ $query = "UPDATE posts SET title='$title', content='$content', post_date='$post_
 if (mysqli_query($connection, $query)) {
     $response = array("message" => "Record updated successfully");
 } else {
-    $response = array("message" => "Error updating record: " . mysqli_error($conn));
+    $response = array("message" => "Error updating record: " . mysqli_error($connection));
 }
 
 echo json_encode($response);

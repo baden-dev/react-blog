@@ -10,7 +10,7 @@ if ($make_query= mysqli_query($connection, $query)) {
     echo $json;
 
 } else {
-    $response = array("message" => "Error retrieving table records: " . mysqli_error($conn));
+    $response = array("message" => "Error retrieving table records: " . mysqli_error($connection));
     echo json_encode($response);
 }
 ?>
