@@ -2,7 +2,6 @@
 require 'connect_to_db.php';
 
 $request_method = $_SERVER["REQUEST_METHOD"];
-echo "request_method = $request_method\n";
 
 switch ($request_method) {
     case 'GET':
@@ -26,5 +25,4 @@ switch ($request_method) {
         echo json_encode(array("message" => "Method Not Allowed"));
         break;
 }
-
 ?>
