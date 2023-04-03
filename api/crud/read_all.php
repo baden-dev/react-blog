@@ -1,6 +1,6 @@
 <?php
 
-$query = "SELECT * FROM posts";
+$query = "SELECT * FROM posts ORDER BY CONCAT(post_date, ' ', post_time) DESC";
 
 if ($make_query= mysqli_query($connection, $query)) {
     $table_data = mysqli_fetch_all($make_query, MYSQLI_ASSOC);
