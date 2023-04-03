@@ -33,6 +33,9 @@ else{
                 include('crud/delete.php');
             }
             break;
+        case 'OPTIONS':
+            header("HTTP/1.1 200 OK");
+            break;
         default:
             http_response_code(405);
             echo json_encode(array("message" => "Method Not Allowed"));
