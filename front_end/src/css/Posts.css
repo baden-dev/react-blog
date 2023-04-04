@@ -45,3 +45,18 @@
     display: flex;
     justify-content: center;
   }
+
+  .delete-btn {
+    background: none;
+    border: none;
+    color: red;
+    cursor: pointer;
+  }
+  
+  .delete-icon {
+    font-size: 1.2rem; /* increase the font-size */
+  }
+  
+  .delete-icon:hover {
+    color:pink;
+  }
