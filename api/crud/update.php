@@ -7,17 +7,20 @@ $post_date = $data["post_date"];
 $post_time = $data["post_time"];
 
 $id = $_GET["post_id"];
-$query = $connection->prepare("UPDATE posts 
-SET title=?, content=?, post_date=?, post_time=? WHERE post_id=?");
+$query = "UPDATE posts SET title=?, content=?, post_date=?, post_time=? WHERE post_id=?";
 
-$query->bind_param("ssssi", $title, $content, $post_date, $post_time, $id);
+try {
+    $stmt = $connection->prepare($query);
+    $stmt->bindParam(1, $title, PDO::PARAM_STR);
+    $stmt->bindParam(2, $content, PDO::PARAM_STR);
+    $stmt->bindParam(3, $post_date, PDO::PARAM_STR);
+    $stmt->bindParam(4, $post_time, PDO::PARAM_STR);
+    $stmt->bindParam(5, $id, PDO::PARAM_INT);
+    $stmt->execute();
 
-if ($query->execute()) {
     $response = array("message" => "Record updated successfully");
-} else {
-    $response = array("message" => "Error updating record: " . $query->error);
+} catch(PDOException $e) {
+    $response = array("message" => "Error updating record: " . $e->getMessage());
 }
-
-$query->close();
 echo json_encode($response);
 ?>

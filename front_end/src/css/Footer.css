@@ -1,0 +1,31 @@
+.footer {
+    display: flex;
+    justify-content: center;
+    background-color: #dddee5;
+    color: #41465a;
+    padding: 1rem;
+    width: 100vw;
+    
+  }
+  
+  .container {
+    display: flex;
+  }
+  
+  .text-muted {
+    font-size: 0.8rem;
+  }
+  
+  .page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .page-content {
+    flex-grow: 1;
+  }
+  
+  .page-footer {
+    position: fixed;
+  }

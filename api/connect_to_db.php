@@ -3,10 +3,12 @@
 $host = "localhost";
 $user = "root";
 $password = "";
-$database = "blog";
+$database = "react_blog";
 
-$connection = mysqli_connect($host, $user, $password, $database);
-if (!$connection) {
-    die("Connection failed: " . mysqli_connect_error());
+try {
+    $connection = new PDO("mysql:host=$host;dbname=$database", $user, $password);
+    $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch(PDOException $e) {
+    die("Connection failed: " . $e->getMessage());
 }
 ?>
