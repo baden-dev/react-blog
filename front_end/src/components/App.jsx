@@ -5,6 +5,7 @@ import Navbar from "./NavBar";
 import AllPosts from "./AllPosts";
 import SinglePost from "./SinglePost";
 import EditPost from "./EditPost";
+import CreatePost from "./CreatePost";
 import "../css/App.css";
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
             <Route path="/" element={<AllPosts />} />
             <Route path="/post/:post_id" element={<SinglePost />} />
             <Route path="/edit_post/:post_id" element={<EditPost />} />
+            <Route path="/create_post" element={<CreatePost />} />
           </Routes>
         </div>
         <Footer className="page-footer" />
