@@ -6,20 +6,20 @@ $content = $data["content"];
 $date = $data["post_date"];
 $time = $data["post_time"];
 
-// Prepare the SQL statement with placeholders
-$query = $connection->prepare("INSERT INTO posts (title, content, post_date, post_time) 
-VALUES (?, ?, ?, ?)");
+$query = "INSERT INTO posts (title, content, post_date, post_time) VALUES (?, ?, ?, ?)";
+try {
 
-// Bind parameters to the placeholders
-$query->bind_param("ssss", $title, $content, $date, $time);
+    $stmt = $connection->prepare($query);
+    $stmt->bindParam(1, $title, PDO::PARAM_STR);
+    $stmt->bindParam(2, $content, PDO::PARAM_STR);
+    $stmt->bindParam(3, $date, PDO::PARAM_STR);
+    $stmt->bindParam(4, $time, PDO::PARAM_STR);
+    $stmt->execute();
 
-// Execute the statement
-if ($query->execute()) {
     $response = array("message" => "Record created successfully");
-} else {
-    $response = array("message" => "Error creating record: " . $conn->error);
+    echo json_encode($response);
+} catch(PDOException $e) {
+    $response = array("message" => "Error creating record: " . $e->getMessage());
+    echo json_encode($response);
 }
-
-$query->close();
-echo json_encode($response);
 ?>
