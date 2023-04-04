@@ -3,6 +3,7 @@ import Footer from "./Footer";
 import Header from "./Header";
 import Navbar from "./NavBar";
 import AllPosts from "./AllPosts";
+import SinglePost from "./SinglePost";
 import "../css/App.css";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
           <Navbar />
           <Routes>
             <Route path="/" element={<AllPosts />} />
+            <Route path="/post/:post_id" element={<SinglePost />} />
           </Routes>
         </div>
         <Footer className="page-footer" />
