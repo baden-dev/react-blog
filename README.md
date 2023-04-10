@@ -1,6 +1,6 @@
 <h1> CRUD React Blog Site</h1>
 
-This is a simple blog-like site where one can view, create, edit, and delete blog posts. The site is built using React and JavaScript for the front-end and PHP for the API was built using PHP and SQL for the database.
+This is a simple blog-like site where one can view, create, edit, and delete blog posts. The site is built using ReactJS for the front-end and the API was built using PHP and SQL for the database.
 
 <h2><u> Blog Pages </u></h2>
 
